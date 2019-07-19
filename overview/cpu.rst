@@ -10,7 +10,7 @@ To solve a problem classically on your local machine, you configure a classical 
 either one of those included in the Ocean tools or your own.
 
 ------------------------------
-Example: Solving Ising Models
+Example: Solving Ising Model
 ------------------------------
 
 Among several samplers provided in the :std:doc:`dimod <dimod:index>`
@@ -48,7 +48,7 @@ vary by execution.
 
 
 ------------------------------
-Example: Solving QUBO Models
+Example: Solving QUBO Model
 ------------------------------
 
 The problem presented above can be translated into the following QUBO problem
