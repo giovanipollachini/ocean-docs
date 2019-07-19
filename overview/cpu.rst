@@ -29,7 +29,9 @@ classically on your local machine.
 
    >>> import dimod
    >>> solver = dimod.ExactSolver()
-   >>> response = solver.sample_ising({'a': -0.5, 'b': 1.0}, {('a', 'b'): -1})
+   >>> h = {'a': -0.5, 'b': 1.0}
+   >>> J = {('a', 'b'): -1}
+   >>> response = solver.sample_ising(h,J,num_reads=2)
    >>> response.data_vectors['energy']
    array([-1.5, -0.5, -0.5,  2.5])
 
@@ -42,8 +44,10 @@ vary by execution.
 
    >>> import neal
    >>> solver = neal.SimulatedAnnealingSampler()
-   >>> response = solver.sample_ising({'a': -0.5, 'b': 1.0}, {('a', 'b'): -1}, num_reads=2)
-   >>> response.data_vectors['energy']       # doctest: +SKIP
+   >>> h = {'a': -0.5, 'b': 1.0}
+   >>> J = {('a', 'b'): -1}
+   >>> response = solver.sample_ising(h,J,num_reads=2)
+   >>> response.data_vectors['energy']
    array([-1.5, -1.5])
 
 
@@ -67,8 +71,10 @@ The following code solves this two-variable QUBO problem classically on your loc
 
    >>> import dimod
    >>> solver = dimod.ExactSolver()
-   >>> response = solver.sample_qubo({('a','a'): 1.0, ('b','b'): 4.0 , ('a', 'b'): -4.0})
-   >>> response.data_vectors['energy']-1.5
+   >>> Q = {('a','a'): 1.0, ('b','b'): 4.0 , ('a', 'b'): -4.0}
+   >>> c = -1.5
+   >>> response = solver.sample_qubo(Q)
+   >>> response.data_vectors['energy'] + c
    array([-1.5, -0.5, -0.5,  2.5])
 
 
@@ -79,7 +85,9 @@ simulated annealing sampler on your local machine.
 
    >>> import neal
    >>> solver = neal.SimulatedAnnealingSampler()
-   >>> response = solver.sample_qubo({('a','a'): 1.0, ('b','b'): 4.0, ('a','b'): -4.0},num_reads=2)
-   >>> response.data_vectors['energy']-1.5
+   >>> Q = {('a','a'): 1.0, ('b','b'): 4.0 , ('a', 'b'): -4.0}
+   >>> c = -1.5
+   >>> response = solver.sample_qubo(Q,num_reads=2)
+   >>> response.data_vectors['energy'] + c
    array([-1.5, -1.5])
 
