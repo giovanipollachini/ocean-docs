@@ -9,8 +9,9 @@ your problem to verify your code.
 To solve a problem classically on your local machine, you configure a classical solver,
 either one of those included in the Ocean tools or your own.
 
-Examples
-========
+------------------------------
+Examples: Solving Ising Models
+------------------------------
 
 Among several samplers provided in the :std:doc:`dimod <dimod:index>`
 tool for testing your code locally, is the :code:`ExactSolver()` that calculates the energy of all
@@ -37,3 +38,8 @@ vary by execution.
    >>> response = solver.sample_ising({'a': -0.5, 'b': 1.0}, {('a', 'b'): -1}, num_reads=2)
    >>> response.data_vectors['energy']       # doctest: +SKIP
    array([-1.5, -0.5])
+
+
+------------------------------
+Examples: Solving QUBO Models
+------------------------------
