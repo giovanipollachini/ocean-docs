@@ -20,6 +20,7 @@ possible samples for a given problem. This example solves the following two-vari
 .. math::
 
     -0.5a-b-ab
+
     a,b = -1,1
 
 classically on your local machine.
@@ -55,9 +56,10 @@ The problem presented above can be translated into the following QUBO problem
 .. math::
 
     r + 4s - 4rs - 1.5 
+
     r,s = 0,1
 
-via the change of variables :math:`a = 2r-1`, :math:`b = 2s-1`.
+via the change of variables :math:`a = 2r-1` and :math:`b = 2s-1`.
 
 The following code solves this two-variable QUBO problem classically on your local machine using the :code:`ExactSolver()`.
 
